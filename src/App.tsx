@@ -322,7 +322,7 @@ function SiteDrawer({}) {
         </div>
       </div>
       {/* Navigation */}
-      <div className="px-3 py-1 flex items-center justify-between gap-x-3 bg-gray-4 border-t">
+      <div className="px-3 py-1 flex items-center justify-between gap-x-3 bg-gray-4 backdrop-blur-sm border-t">
         <div className="flex items-center gap-x-5 text-gray-10">
           <div className="p-1 text-accent-9">
             <svg
