@@ -236,7 +236,8 @@ function SiteDrawer({}) {
       <div className="bg-card border-t rounded-t-4xl p-3">
         {/* Handle */}
         <div className="flex items-center justify-center select-none">
-          <div className="h-1.5 w-16 rounded-full bg-gray-6"></div>
+          {/*TODO: animate (bounce?) on tap*/}
+          <div className="h-1.5 w-16 rounded-full bg-gray-6 "></div>
         </div>
         {/*  Content */}
         <div className="hidden">
