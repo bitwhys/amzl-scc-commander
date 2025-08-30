@@ -1,22 +1,50 @@
-export const ThemeToggle = () => {
+import { useId } from "react";
+import { CheckIcon, MinusIcon } from "lucide-react";
+
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group.tsx";
+
+const items = [
+  { value: "1", label: "Light", image: "/ui-light.png" },
+  { value: "2", label: "Dark", image: "/ui-dark.png" },
+  { value: "3", label: "System", image: "/ui-system.png" },
+];
+
+export function ThemeToggle() {
+  const id = useId();
   return (
-    <div className="p-1 rounded-full text-gray-11">
-      <svg
-        className="dark:hidden size-7"
-        xmlns="http://www.w3.org/2000/svg"
-        fill="currentColor"
-        viewBox="0 0 256 256"
-      >
-        <path d="M240,96a8,8,0,0,1-8,8H216v16a8,8,0,0,1-16,0V104H184a8,8,0,0,1,0-16h16V72a8,8,0,0,1,16,0V88h16A8,8,0,0,1,240,96ZM144,56h8v8a8,8,0,0,0,16,0V56h8a8,8,0,0,0,0-16h-8V32a8,8,0,0,0-16,0v8h-8a8,8,0,0,0,0,16Zm65.14,94.33A88.07,88.07,0,0,1,105.67,46.86a8,8,0,0,0-10.6-9.06A96,96,0,1,0,218.2,160.93a8,8,0,0,0-9.06-10.6Z"></path>
-      </svg>
-      <svg
-        className="size-7 hidden dark:inline text-gray-12"
-        xmlns="http://www.w3.org/2000/svg"
-        fill="currentColor"
-        viewBox="0 0 256 256"
-      >
-        <path d="M240,148H203.89c.07-1.33.11-2.66.11-4a76,76,0,0,0-152,0c0,1.34,0,2.67.11,4H16a12,12,0,0,0,0,24H240a12,12,0,0,0,0-24ZM76,144a52,52,0,0,1,104,0c0,1.34-.07,2.67-.17,4H76.17C76.07,146.67,76,145.34,76,144Zm144,56a12,12,0,0,1-12,12H48a12,12,0,0,1,0-24H208A12,12,0,0,1,220,200ZM12.62,92.21a12,12,0,0,1,15.17-7.59l12,4a12,12,0,1,1-7.58,22.77l-12-4A12,12,0,0,1,12.62,92.21Zm56-48.41a12,12,0,1,1,22.76-7.59l4,12A12,12,0,1,1,72.62,55.8Zm140,60a12,12,0,0,1,7.59-15.18l12-4a12,12,0,0,1,7.58,22.77l-12,4a12,12,0,0,1-15.17-7.59Zm-48-55.59,4-12a12,12,0,1,1,22.76,7.59l-4,12a12,12,0,1,1-22.76-7.59Z"></path>
-      </svg>
-    </div>
+    <fieldset className="space-y-4">
+      <legend className="text-gray-11 text-lg leading-none font-bold uppercase">theme</legend>
+      <RadioGroup className="grid grid-cols-3 gap-3" defaultValue="1">
+        {items.map((item) => (
+          <label key={`${id}-${item.value}`}>
+            <RadioGroupItem
+              id={`${id}-${item.value}`}
+              value={item.value}
+              className="peer sr-only after:absolute after:inset-0"
+            />
+            <img
+              src={item.image}
+              alt={item.label}
+              width={88}
+              height={70}
+              className="border-input peer-focus-visible:ring-ring/50 peer-data-[state=checked]:border-ring peer-data-[state=checked]:bg-accent relative cursor-pointer overflow-hidden rounded-md border shadow-xs transition-[color,box-shadow] outline-none peer-focus-visible:ring-[3px] peer-data-disabled:cursor-not-allowed peer-data-disabled:opacity-50"
+            />
+            <span className="group peer-data-[state=unchecked]:text-muted-foreground/70 mt-2 flex items-center gap-1">
+              <CheckIcon
+                size={16}
+                className="group-peer-data-[state=unchecked]:hidden"
+                aria-hidden="true"
+              />
+              <MinusIcon
+                size={16}
+                className="group-peer-data-[state=checked]:hidden"
+                aria-hidden="true"
+              />
+              <span className="text-xs font-semibold uppercase">{item.label}</span>
+            </span>
+          </label>
+        ))}
+      </RadioGroup>
+    </fieldset>
   );
-};
+}
