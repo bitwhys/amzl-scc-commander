@@ -2,19 +2,26 @@ import { useId } from "react";
 import { CheckIcon, MinusIcon } from "lucide-react";
 
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group.tsx";
+import { useTheme } from "@/components/theme-provider";
 
 const items = [
-  { value: "1", label: "Light", image: "/ui-light.png" },
-  { value: "2", label: "Dark", image: "/ui-dark.png" },
-  { value: "3", label: "System", image: "/ui-system.png" },
-];
+  { value: "light", label: "Light", image: "/ui-light.png" },
+  { value: "dark", label: "Dark", image: "/ui-dark.png" },
+  { value: "system", label: "System", image: "/ui-system.png" },
+] as const;
 
 export function ThemeToggle() {
+  const { theme, setTheme } = useTheme();
   const id = useId();
+
   return (
     <fieldset className="space-y-4">
       <legend className="text-gray-11 text-lg leading-none font-bold uppercase">theme</legend>
-      <RadioGroup className="grid grid-cols-3 gap-3" defaultValue="1">
+      <RadioGroup
+        className="grid grid-cols-3 gap-3"
+        value={theme}
+        onValueChange={(value: typeof theme) => setTheme(value)}
+      >
         {items.map((item) => (
           <label key={`${id}-${item.value}`}>
             <RadioGroupItem
