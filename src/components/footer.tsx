@@ -10,10 +10,10 @@ function CustomLink({ children, to, className, ...props }: LinkProps) {
     <div>
       <Link
         className={cx(
-          "[--current-background-color:var(--color-black-a12)]",
+          "[--current-background-color:var(--color-black-a12)] dark:[--current-background-color:var(--color-white-a12)]",
           "[--current-text-color:var(--color-gray-10)] text-(--current-text-color)",
           {
-            "[--current-background-color:var(--color-accent-9)] [--current-text-color:var(--color-accent-11)]":
+            "[--current-background-color:var(--color-accent-9)] dark:[--current-background-color:var(--color-accent-9)] [--current-text-color:var(--color-accent-11)]":
               match,
           },
           className,
@@ -29,7 +29,7 @@ function CustomLink({ children, to, className, ...props }: LinkProps) {
 
 export const Footer = () => {
   return (
-    <nav className="absolute bottom-0 inset-x-0 px-3 py-1.5 bg-background">
+    <nav className="shrink-0 px-3 py-1.5 bg-background">
       <div className="flex items-center justify-between">
         <CustomLink to="/saved" className={`flex flex-col items-center space-y-1 py-2 px-3`}>
           <FloppyDiskIcon className="text-current" size={28} weight="fill" />
@@ -39,7 +39,7 @@ export const Footer = () => {
           to="/search"
           className="w-14 h-14 bg-(--current-background-color) rounded-full flex items-center justify-center"
         >
-          <ListMagnifyingGlassIcon weight="bold" size={32} className="text-white" />
+          <ListMagnifyingGlassIcon weight="bold" size={32} className="text-white dark:text-black" />
         </CustomLink>
 
         <button

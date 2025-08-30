@@ -10,7 +10,7 @@ import { cx, focusRing } from "@/lib/utils";
 const buttonVariants = tv({
   base: [
     // base
-    "relative inline-flex items-center justify-center whitespace-nowrap rounded-full border px-3 py-2 text-center text-sm font-medium shadow-xs transition-all duration-100 ease-in-out",
+    "relative inline-flex items-center justify-center whitespace-nowrap rounded-full border px-3.5 py-1.5 text-center text-sm font-medium shadow-xs transition-all duration-100 ease-in-out",
     // disabled
     "disabled:pointer-events-none disabled:shadow-none",
     // focus
@@ -22,14 +22,14 @@ const buttonVariants = tv({
         // border
         "border-transparent",
         // text color
-        "text-white dark:text-white",
+        "text-accent-contrast",
         // background color
-        "bg-blue-500 dark:bg-blue-500",
+        "bg-accent-9",
         // hover color
-        "hover:bg-blue-600 dark:hover:bg-blue-600",
+        // "hover:bg-blue-600 dark:hover:bg-blue-600",
         // disabled
-        "disabled:bg-blue-300 disabled:text-white",
-        "dark:disabled:bg-blue-800 dark:disabled:text-blue-400",
+        "disabled:bg-accent-3 disabled:text-white",
+        // "dark:disabled:bg-blue-800 dark:disabled:text-blue-400",
       ],
       secondary: [
         // border

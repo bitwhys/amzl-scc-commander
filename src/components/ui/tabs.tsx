@@ -55,7 +55,7 @@ function getVariantStyles(tabVariant: TabsListVariant) {
     case "line":
       return cx(
         // base
-        "-mb-px items-center justify-center border-b-2 border-transparent px-3 pb-2 text-sm font-semibold whitespace-nowrap transition-all",
+        "-mb-px items-center justify-center border-b-2 border-transparent px-3 pb-2 text-sm font-semibold whitespace-nowrap ",
         // text color
         "text-gray-500 dark:text-gray-500",
         // hover
@@ -72,16 +72,14 @@ function getVariantStyles(tabVariant: TabsListVariant) {
     case "solid":
       return cx(
         // base
-        "inline-flex items-center justify-center rounded-full px-3 py-1 text-sm font-medium whitespace-nowrap ring-1 transition-all ring-inset",
+        "inline-flex items-center justify-center rounded-full px-3 py-1 text-sm font-medium whitespace-nowrap ring-1 ring-inset",
         // text color
-        "text-gray-500 dark:text-gray-400",
-        // hover
-        "hover:text-gray-700 dark:hover:text-gray-200",
+        "text-gray-10",
         // ring
         "ring-transparent",
         // selected
-        "data-[state=active]:bg-white data-[state=active]:text-gray-900 data-[state=active]:shadow-sm",
-        "dark:data-[state=active]:bg-gray-950 dark:data-[state=active]:text-gray-50",
+        "data-[state=active]:bg-white data-[state=active]:text-foreground data-[state=active]:shadow-sm",
+        "dark:data-[state=active]:bg-background",
         // disabled
         "data-disabled:pointer-events-none data-disabled:text-gray-400 data-disabled:opacity-50 dark:data-disabled:text-gray-600",
       );

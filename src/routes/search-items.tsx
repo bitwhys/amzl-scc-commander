@@ -47,8 +47,8 @@ const items = [
 
 export const SearchItems = () => {
   return (
-    <div className="space-y-8">
-      <div className="flex items-center gap-x-4">
+    <div className="space-y-4">
+      <div className="flex items-center gap-x-4 sticky top-0 z-10 bg-background -mx-3 px-2 pt-top-buffer pb-2">
         <div className="flex-1">
           <Label htmlFor="search" className="sr-only">
             Search
@@ -69,7 +69,7 @@ export const SearchItems = () => {
         {items.map((item) => (
           <li
             key={item.id}
-            className="overflow-hidden rounded-md bg-white px-6 py-4 shadow-sm dark:bg-gray-800/50 dark:shadow-none dark:outline dark:-outline-offset-1 dark:outline-white/10"
+            className="overflow-hidden rounded-md bg-white px-6 py-4 shadow-sm [--tw-shadow-color:var(--color-black-a3)] dark:bg-card dark:shadow-none dark:outline dark:-outline-offset-1 dark:outline-gray-a4"
           >
             {/* Your content */}
             <ContentPlaceholder className="h-13" />

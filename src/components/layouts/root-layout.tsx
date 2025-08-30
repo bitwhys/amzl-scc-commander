@@ -6,12 +6,13 @@ import { Footer } from "@/components/footer.tsx";
 export const RootLayout = () => {
   return (
     <ThemeProvider defaultTheme="system">
-      <div className="h-svh w-svw overflow-hidden relative">
-        <main className="h-full px-3 pt-4 pb-2.5">
-          <Outlet />
-        </main>
-        <Footer />
-      </div>
+      <main
+        className="flex-1 overflow-y-auto overscroll-contain px-3 pb-2.5 select-none"
+        style={{ WebkitOverflowScrolling: "touch" }}
+      >
+        <Outlet />
+      </main>
+      <Footer />
     </ThemeProvider>
   );
 };
